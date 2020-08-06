@@ -1,6 +1,17 @@
-.userinput-container {
+.ui-container {
    min-height: inherit;
    display: flex;
    flex-direction: column;
    justify-content: center;
+   align-items: center;
+}
+
+.ui-segment {
+   width: max-content;
+   display: flex;
+   align-items: center;
+
+   & .button {
+      margin: 0 0 0 1em;
+   }
 }

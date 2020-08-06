@@ -2,13 +2,13 @@ import React from 'react'
 
 const UserInput = () => {
    return (
-      <div className='userinput-container'>
-         <div className='ui segment teal raised center aligned'>
-            <div class='ui labeled input'>
-               <div class='ui label'>https://github.com/</div>
+      <div className='ui-container'>
+         <div className='ui segment teal raised ui-segment'>
+            <div className='ui labeled input'>
+               <div className='ui label'>https://github.com/</div>
                <input type='text' placeholder='username' />
             </div>
-            <button class='ui teal button'>Generate timeline</button>
+            <button className='ui teal button'>Generate timeline</button>
          </div>
       </div>
    )
