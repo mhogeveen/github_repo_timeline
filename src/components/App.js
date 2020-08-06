@@ -4,7 +4,7 @@ import UserInput from './UserInput'
 
 const App = () => {
    return (
-      <div className='ui container'>
+      <div className='ui container app-container'>
          <UserInput />
       </div>
    )
