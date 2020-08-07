@@ -8,7 +8,7 @@ const Timeline = () => {
 }
 
 const mapStateToProps = (state) => {
-   return { userInfo: state.userInfo }
+   return { userInfo: state.userInfo, userRepos: state.userRepos }
 }
 
 export default connect(mapStateToProps)(Timeline)

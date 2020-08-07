@@ -1,3 +1,4 @@
 export const UPDATE_USERNAME = 'UPDATE_USERNAME'
 
 export const GET_USERINFO = 'GET_USERINFO'
+export const GET_USERREPOS = 'GET_USERREPOS'

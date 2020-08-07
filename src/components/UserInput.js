@@ -1,9 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateUsername, getUserInfo } from '../actions'
-// import axios from 'axios'
+import { updateUsername, getUserInfo, getUserRepos } from '../actions'
 
-const UserInput = ({ updateUsername, username, getUserInfo }) => {
+const UserInput = ({ updateUsername, username, getUserInfo, getUserRepos }) => {
    const handleUpdateUsername = (e) => {
       updateUsername(e.target.value)
    }
@@ -15,25 +14,7 @@ const UserInput = ({ updateUsername, username, getUserInfo }) => {
    }
 
    const handleGetUser = () => {
-      // const githubAPI = axios.create({
-      //    baseURL: 'https://api.github.com/',
-      // })
-
-      // githubAPI
-      //    .get(`users/${username}`)
-      //    .then((res) => {
-      //       const userInfo = { ...res.data }
-      //       getUserInfo(userInfo)
-      //    })
-      //    .catch((err) => {
-      //       updateUsername('')
-      //       const inputContainer = document.querySelector('.popup')
-      //       inputContainer.classList.add('active')
-
-      //       setTimeout(() => {
-      //          inputContainer.classList.remove('active')
-      //       }, 5000)
-      //    })
+      getUserRepos()
       getUserInfo()
    }
 
@@ -63,4 +44,4 @@ const mapStateToProps = (state) => {
    return { username: state.username }
 }
 
-export default connect(mapStateToProps, { updateUsername, getUserInfo })(UserInput)
+export default connect(mapStateToProps, { updateUsername, getUserInfo, getUserRepos })(UserInput)
