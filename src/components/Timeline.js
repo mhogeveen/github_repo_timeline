@@ -1,8 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import ReturnHome from './ReturnHome'
+
 const Timeline = () => {
-   return <div>Timeline</div>
+   return <ReturnHome />
 }
 
 const mapStateToProps = (state) => {
