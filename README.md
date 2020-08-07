@@ -7,6 +7,7 @@ This app generates a timeline with an entry for each repository the selected use
 -  React
 -  React Router
 -  Redux
+-  redux-thunk
 -  Axios
 -  Semantic UI
 -  Github APIv3:

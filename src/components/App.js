@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Router, Switch, Route } from 'react-router-dom'
+import history from '../history'
 
 import UserInput from './UserInput'
 import Timeline from './Timeline'
@@ -9,12 +10,12 @@ import Timeline from './Timeline'
 const App = ({ username }) => {
    return (
       <div className='ui container app-container'>
-         <Router>
+         <Router history={history}>
             <Switch>
-               <Route path='/'>
+               <Route exact path='/'>
                   <UserInput />
                </Route>
-               <Route path={`/timeline/${username}`}>
+               <Route path={`/:username`}>
                   <Timeline />
                </Route>
             </Switch>
@@ -24,7 +25,7 @@ const App = ({ username }) => {
 }
 
 const mapStateToProps = (state) => {
-   return { username: state.username }
+   return { username: state.username, userInfo: state.userInfo }
 }
 
 export default connect(mapStateToProps)(App)

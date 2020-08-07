@@ -1,8 +1,8 @@
-import { UPDATE_USERINFO } from '../actions/types'
+import { GET_USERINFO } from '../actions/types'
 
 export default (state = {}, action) => {
    switch (action.type) {
-      case UPDATE_USERINFO:
+      case GET_USERINFO:
          return action.payload
       default:
          return state
