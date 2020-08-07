@@ -1,13 +1,30 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import UserInput from './UserInput'
+import Timeline from './Timeline'
 
-const App = () => {
+const App = ({ username }) => {
    return (
       <div className='ui container app-container'>
-         <UserInput />
+         <Router>
+            <Switch>
+               <Route path='/'>
+                  <UserInput />
+               </Route>
+               <Route path={`/timeline/${username}`}>
+                  <Timeline />
+               </Route>
+            </Switch>
+         </Router>
       </div>
    )
 }
 
-export default App
+const mapStateToProps = (state) => {
+   return { username: state.username }
+}
+
+export default connect(mapStateToProps)(App)
