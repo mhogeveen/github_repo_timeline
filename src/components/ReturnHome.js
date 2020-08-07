@@ -1,14 +1,20 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { updateUsername } from '../actions'
 import { Link } from 'react-router-dom'
 
-const ReturnHome = () => {
+const ReturnHome = ({ updateUsername }) => {
+   const handleReturnHome = () => {
+      updateUsername('')
+   }
+
    return (
-      <Link to='/'>
-         <button class='ui circular teal icon button'>
-            <i class='arrow left icon'></i>
+      <Link to='/' className='return-home' onClick={handleReturnHome}>
+         <button className='ui circular teal icon button'>
+            <i className='arrow left icon'></i>
          </button>
       </Link>
    )
 }
 
-export default ReturnHome
+export default connect(null, { updateUsername })(ReturnHome)
