@@ -9,9 +9,21 @@ $first-dot: 20px;
       margin: 30px 0 30px 0;
    }
 
+   &-item {
+      opacity: 0;
+      transform: scale(0);
+      transition: opacity 750ms ease-in-out, transform 750ms ease-in-out;
+
+      &.show-on-scroll {
+         opacity: 1;
+         transform: scale(1);
+      }
+   }
+
    &-item:nth-child(odd) {
       position: relative;
       width: calc(50% - 24px);
+      transform-origin: right top;
 
       &::before {
          position: absolute;
@@ -40,6 +52,7 @@ $first-dot: 20px;
       align-self: flex-end;
       position: relative;
       width: calc(50% - 24px);
+      transform-origin: left top;
 
       &::before {
          position: absolute;
