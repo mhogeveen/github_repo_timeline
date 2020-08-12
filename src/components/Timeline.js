@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { getUserRepos, updateUsername } from '../actions'
 
 import Back from './Back'
 import UserInfo from './UserInfo'
 import UserRepo from './UserRepo'
 
-const Timeline = ({ userInfo, userRepos, getUserRepos, updateUsername }) => {
+const Timeline = ({ userInfo, userRepos }) => {
    const [loading, setLoading] = useState(true)
 
    useEffect(() => {
-      updateUsername('mhogeveen')
-      getUserRepos()
-
       setTimeout(() => {
          setLoading(false)
 
@@ -32,7 +28,7 @@ const Timeline = ({ userInfo, userRepos, getUserRepos, updateUsername }) => {
             observer.observe(target)
          })
       }, 1000)
-   }, [updateUsername, getUserRepos])
+   }, [])
 
    const renderContent = () => {
       if (loading) {
@@ -63,4 +59,4 @@ const mapStateToProps = (state) => {
    return { userInfo: state.userInfo, userRepos: state.userRepos }
 }
 
-export default connect(mapStateToProps, { getUserRepos, updateUsername })(Timeline)
+export default connect(mapStateToProps)(Timeline)
