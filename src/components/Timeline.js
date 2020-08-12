@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
+import { getUserRepos, updateUsername } from '../actions'
 
 import Back from './Back'
 import UserInfo from './UserInfo'
+import UserRepo from './UserRepo'
 
-import { getUserInfo, updateUsername } from '../actions'
-
-const Timeline = ({ userInfo, getUserInfo, updateUsername }) => {
+const Timeline = ({ userInfo, userRepos, getUserRepos, updateUsername }) => {
    const [loading, setLoading] = useState(true)
 
    useEffect(() => {
       updateUsername('mhogeveen')
-      getUserInfo()
+      getUserRepos()
 
       setTimeout(() => {
          setLoading(false)
@@ -31,8 +31,8 @@ const Timeline = ({ userInfo, getUserInfo, updateUsername }) => {
          targets.forEach((target) => {
             observer.observe(target)
          })
-      }, 2000)
-   }, [updateUsername, getUserInfo])
+      }, 1000)
+   }, [updateUsername, getUserRepos])
 
    const renderContent = () => {
       if (loading) {
@@ -46,72 +46,10 @@ const Timeline = ({ userInfo, getUserInfo, updateUsername }) => {
             <>
                <Back />
                <div className='timeline-container'>
-                  <div className='timeline-item ui raised segment'>
-                     <UserInfo userInfo={userInfo} />
-                  </div>
-                  <div className='timeline-item ui raised segment'>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia
-                     suscipit vestibulum. Suspendisse ultricies enim neque, sit amet pulvinar felis
-                     dignissim eu. Cras nec sapien eu nisi mollis scelerisque. Aenean ultricies
-                     fringilla varius. Nullam aliquam, lacus sit amet posuere bibendum, odio nulla
-                     mollis metus, in fermentum lacus nunc id urna.
-                  </div>
-                  <div className='timeline-item ui raised segment'>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia
-                     suscipit vestibulum. Suspendisse ultricies enim neque, sit amet pulvinar felis
-                     dignissim eu. Cras nec sapien eu nisi mollis scelerisque. Aenean ultricies
-                     fringilla varius. Nullam aliquam, lacus sit amet posuere bibendum, odio nulla
-                     mollis metus, in fermentum lacus nunc id urna.
-                  </div>
-                  <div className='timeline-item ui raised segment'>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia
-                     suscipit vestibulum. Suspendisse ultricies enim neque, sit amet pulvinar felis
-                     dignissim eu. Cras nec sapien eu nisi mollis scelerisque. Aenean ultricies
-                     fringilla varius. Nullam aliquam, lacus sit amet posuere bibendum, odio nulla
-                     mollis metus, in fermentum lacus nunc id urna.
-                  </div>
-                  <div className='timeline-item ui raised segment'>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia
-                     suscipit vestibulum. Suspendisse ultricies enim neque, sit amet pulvinar felis
-                     dignissim eu. Cras nec sapien eu nisi mollis scelerisque. Aenean ultricies
-                     fringilla varius. Nullam aliquam, lacus sit amet posuere bibendum, odio nulla
-                     mollis metus, in fermentum lacus nunc id urna.
-                  </div>
-                  <div className='timeline-item ui raised segment'>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia
-                     suscipit vestibulum. Suspendisse ultricies enim neque, sit amet pulvinar felis
-                     dignissim eu. Cras nec sapien eu nisi mollis scelerisque. Aenean ultricies
-                     fringilla varius. Nullam aliquam, lacus sit amet posuere bibendum, odio nulla
-                     mollis metus, in fermentum lacus nunc id urna.
-                  </div>
-                  <div className='timeline-item ui raised segment'>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia
-                     suscipit vestibulum. Suspendisse ultricies enim neque, sit amet pulvinar felis
-                     dignissim eu. Cras nec sapien eu nisi mollis scelerisque. Aenean ultricies
-                     fringilla varius. Nullam aliquam, lacus sit amet posuere bibendum, odio nulla
-                     mollis metus, in fermentum lacus nunc id urna.
-                  </div>
-                  <div className='timeline-item ui raised segment'>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia
-                     suscipit vestibulum. Suspendisse ultricies enim neque, sit amet pulvinar felis
-                     dignissim eu. Cras nec sapien eu nisi mollis scelerisque. Aenean ultricies
-                     fringilla varius. Nullam aliquam, lacus sit amet posuere bibendum, odio nulla
-                     mollis metus, in fermentum lacus nunc id urna.
-                  </div>
-                  <div className='timeline-item ui raised segment'>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia
-                     suscipit vestibulum. Suspendisse ultricies enim neque, sit amet pulvinar felis
-                     dignissim eu. Cras nec sapien eu nisi mollis scelerisque. Aenean ultricies
-                     fringilla varius. Nullam aliquam, lacus sit amet posuere bibendum, odio nulla
-                     mollis metus, in fermentum lacus nunc id urna.
-                  </div>
-                  <div className='timeline-item ui raised segment'>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia
-                     suscipit vestibulum. Suspendisse ultricies enim neque, sit amet pulvinar felis
-                     dignissim eu. Cras nec sapien eu nisi mollis scelerisque. Aenean ultricies
-                     fringilla varius. Nullam aliquam, lacus sit amet posuere bibendum, odio nulla
-                     mollis metus, in fermentum lacus nunc id urna.
-                  </div>
+                  <UserInfo userInfo={userInfo} />
+                  {userRepos.map((repo) => (
+                     <UserRepo repo={repo} key={repo.id} />
+                  ))}
                </div>
             </>
          )
@@ -125,4 +63,4 @@ const mapStateToProps = (state) => {
    return { userInfo: state.userInfo, userRepos: state.userRepos }
 }
 
-export default connect(mapStateToProps, { getUserInfo, updateUsername })(Timeline)
+export default connect(mapStateToProps, { getUserRepos, updateUsername })(Timeline)
