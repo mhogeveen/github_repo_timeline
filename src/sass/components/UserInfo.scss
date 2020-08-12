@@ -1,0 +1,25 @@
+.userinfo {
+   &-container {
+      width: 100%;
+      display: flex;
+   }
+
+   &-content {
+      padding: 0 0 0 10px;
+   }
+}
+
+.content {
+   &-name {
+      font-weight: 900;
+   }
+
+   &-info {
+   }
+
+   &-link {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+   }
+}

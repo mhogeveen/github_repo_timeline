@@ -74,4 +74,10 @@ $first-dot: 20px;
          border: 2px solid #00b5ad;
       }
    }
+
+   &-item:last-child {
+      &::after {
+         background: linear-gradient(180deg, #00b5ad 0%, rgba(0, 181, 173, 0) 100%);
+      }
+   }
 }
