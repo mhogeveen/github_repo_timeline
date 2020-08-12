@@ -3,13 +3,13 @@ import { connect } from 'react-redux'
 import { updateUsername } from '../actions'
 import { Link } from 'react-router-dom'
 
-const ReturnHome = ({ updateUsername }) => {
-   const handleReturnHome = () => {
+const Back = ({ updateUsername }) => {
+   const handleBack = () => {
       updateUsername('')
    }
 
    return (
-      <Link to='/' className='return-home' onClick={handleReturnHome}>
+      <Link to='/' className='return-home' onClick={handleBack}>
          <button className='ui circular teal icon button'>
             <i className='arrow left icon'></i>
          </button>
@@ -17,4 +17,4 @@ const ReturnHome = ({ updateUsername }) => {
    )
 }
 
-export default connect(null, { updateUsername })(ReturnHome)
+export default connect(null, { updateUsername })(Back)
