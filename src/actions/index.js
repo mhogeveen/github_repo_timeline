@@ -18,7 +18,7 @@ export const getUserInfo = () => async (dispatch, getState) => {
          type: GET_USERINFO,
          payload: response.data,
       })
-      history.push(`/${username}`)
+      history.push(`${process.env.PUBLIC_URL}/${username}`)
    } catch (error) {
       const inputContainer = document.querySelector('.popup')
       inputContainer.classList.add('active')

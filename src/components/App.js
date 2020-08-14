@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
 import { Router, Switch, Route } from 'react-router-dom'
 import history from '../history'
@@ -7,15 +6,15 @@ import history from '../history'
 import UserInput from './UserInput'
 import Timeline from './Timeline'
 
-const App = ({ username }) => {
+const App = () => {
    return (
       <div className='ui container app-container'>
-         <Router history={history}>
+         <Router history={history} basename={'/github_repo_timeline'}>
             <Switch>
-               <Route exact path='/'>
+               <Route exact path={process.env.PUBLIC_URL + '/'}>
                   <UserInput />
                </Route>
-               <Route path={`/:username`}>
+               <Route path={process.env.PUBLIC_URL + '/:username'}>
                   <Timeline />
                </Route>
             </Switch>
@@ -24,8 +23,4 @@ const App = ({ username }) => {
    )
 }
 
-const mapStateToProps = (state) => {
-   return { username: state.username, userInfo: state.userInfo }
-}
-
-export default connect(mapStateToProps)(App)
+export default App

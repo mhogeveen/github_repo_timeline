@@ -9,7 +9,7 @@ const Back = ({ updateUsername }) => {
    }
 
    return (
-      <Link to='/' className='return-home' onClick={handleBack}>
+      <Link to={process.env.PUBLIC_URL + '/'} className='return-home' onClick={handleBack}>
          <button className='ui circular teal icon button'>
             <i className='arrow left icon'></i>
          </button>
