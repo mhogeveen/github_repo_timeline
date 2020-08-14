@@ -7,6 +7,14 @@ const UserInfo = ({ userInfo }) => {
       return dateString
    }
 
+   const returnFullName = () => {
+      if (userInfo.name === null) {
+         return '-'
+      } else {
+         return userInfo.name
+      }
+   }
+
    return (
       <div className='timeline-item ui raised segment'>
          <div className='userinfo-container'>
@@ -15,7 +23,7 @@ const UserInfo = ({ userInfo }) => {
             </div>
             <div className='userinfo-content'>
                <div className='content-name'>{`User: ${userInfo.login}`}</div>
-               <div className='content-info'>{`Name: ${userInfo.name}`}</div>
+               <div className='content-info'>{`Name: ${returnFullName()}`}</div>
                <div className='content-info'>{`Created on: ${returnDateString()}`}</div>
                <div className='content-info'>{`Public repos: ${userInfo.public_repos}`}</div>
                <a href={userInfo.html_url} className='content-link'>
