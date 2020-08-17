@@ -8,8 +8,8 @@ $bp-m: 550px;
 }
 
 // Import component sheets
-@import './components/App';
-@import './components/UserInput';
-@import './components/Back';
-@import './components/Timeline';
-@import './components/TimelineItem';
+@import './components/app';
+@import './components/userInput';
+@import './components/back';
+@import './components/timeline';
+@import './components/timelineItem';
