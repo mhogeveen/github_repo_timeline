@@ -1,3 +1,6 @@
+// Variables
+$bp-m: 550px;
+
 // Import component sheets
 @import './components/App';
 @import './components/UserInput';
@@ -5,6 +8,7 @@
 @import './components/Timeline';
 @import './components/TimelineItem';
 
+// Root styles
 #root {
    min-height: 100vh;
 }
