@@ -1,5 +1,11 @@
 // Variables
+$bp-l: 800px;
 $bp-m: 550px;
+
+// Root styles
+#root {
+   min-height: 100vh;
+}
 
 // Import component sheets
 @import './components/App';
@@ -7,8 +13,3 @@ $bp-m: 550px;
 @import './components/Back';
 @import './components/Timeline';
 @import './components/TimelineItem';
-
-// Root styles
-#root {
-   min-height: 100vh;
-}
